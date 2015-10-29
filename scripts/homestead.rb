@@ -132,6 +132,9 @@ class Homestead
           elsif (site.has_key?("type") && (site["type"] == "symfony-sulu"))
             s.path = scriptDir + "/serve-sulu.sh"
             s.args = [site["map"], site["to"], site["port"] ||= "80", site["ssl"] ||= "443"]
+          elsif (site.has_key?("type") && (site["type"] == "magento" || site["type"] == "magento"))
+            s.path = scriptDir + "/serve-magento.sh"
+            s.args = [site["map"], site["to"], site["port"] ||= "80", site["ssl"] ||= "443"]
           else
             s.path = scriptDir + "/serve.sh"
             s.args = [site["map"], site["to"], site["port"] ||= "80", site["ssl"] ||= "443"]
